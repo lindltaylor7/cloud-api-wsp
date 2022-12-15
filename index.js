@@ -9,7 +9,7 @@ const token = process.env.TOKEN
 
 const myToken = process.env.MY_TOKEN
 
-app.listen(8000 || process.env.PORT, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log('Webhook is listening')
 })
 
