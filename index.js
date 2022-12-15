@@ -20,9 +20,9 @@ app.get('/webhook', (req, res) => {
 
     if(mode && token){
         if(mode === 'subscribe' && token === myToken){
-            res.status(200).send(challenge)
+            res.send(challenge)
         }else{
-            res.status(403)
+            res.sendStatus(404)
         }
     }
 })
