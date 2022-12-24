@@ -14,15 +14,16 @@ app.listen(process.env.PORT, ()=>{
 })
 
 app.get('/webhook', (req, res) => {
+    console.log('enviando?')
     let mode = req.query['hub.mode']
     let challenge = req.query['hub.challenge']
     let token = req.query['hub.verify_token']
 
     if(mode && token){
         if(mode === 'subscribe' && token === myToken){
-            res.send(challenge)
+            res.status(200).send(challenge)
         }else{
-            res.sendStatus(404)
+            res.status(403)
         }
     }
 })
